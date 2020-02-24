@@ -38,9 +38,9 @@ export class ProductRepository  extends Repository<Product>{
         const product = new Product();
         product.name = name;
         product.usualPrice = usualPrice;
-        product.discount = discount;
+        product.discount = discount||0;
         product.urlImage = urlImage;
-        product.description = description;
+        product.description = description||'';
         product.qty = qty;
         // console.log(category);
         product.category = category;
