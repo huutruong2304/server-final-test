@@ -8,25 +8,26 @@ export class ProductRepository  extends Repository<Product>{
     
     async getProducts(getProductsFilterDto:GetProductsFilterDto):Promise<Product[]>{
         const {categoryId,discount,search,sort} = getProductsFilterDto;
-        const query = this.createQueryBuilder('product');
+        // const query = this.createQueryBuilder('product');
 
-        if(categoryId){
-            query.andWhere('product.categoryId = :categoryId', {categoryId});
-        }
+        // if(categoryId){
+        //     query.andWhere('product.categoryId = :categoryId', {categoryId});
+        // }
 
-        if(discount===true){
-            query.andWhere('product.discount > 0');
-        }
+        // if(discount===true){
+        //     query.andWhere('product.discount > 0');
+        // }
 
-        // if(search){
-        //     query.andWhere('product.name LIKE :search  OR product.description LIKE :search',{search: `%${search}%` });
-        // }   
+        // // if(search){
+        // //     query.andWhere('product.name LIKE :search  OR product.description LIKE :search',{search: `%${search}%` });
+        // // }   
 
-        if(sort){
-            query.orderBy('product.usualPrice', sort);
-        }
+        // if(sort){
+        //     query.orderBy('product.usualPrice', sort);
+        // }
 
-        const products = await query.getMany();
+        // const products = await query.getMany();
+        const products = await this.find({relations:['category']})
         return products;
     }
 

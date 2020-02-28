@@ -2,7 +2,7 @@ import * as sendMail from '@sendgrid/mail'
 import { SendMailDto } from 'src/users/dto/send-mail.dto';
 
 export class SendMail{
-    private host:string = 'truong2341999@gmail.com';
+    private host:string = 'abc.nht.xyz@gmail.com';
     constructor(){
         sendMail.setApiKey('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');
     }
